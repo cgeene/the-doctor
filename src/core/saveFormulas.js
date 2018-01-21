@@ -2,11 +2,12 @@
 
 const {pipeP, curry} = require('ramda');
 const getFormulas = require('../util/getFormulas');
+const saveToFile = require('../util/saveToFile');
 
-module.exports = (environment, options) => {
+module.exports = async (environment, options) => {
     const fileName = options.file;
     
-    return pipeP(
+    return await pipeP(
         getFormulas,
         saveToFile(fileName)
     )(environment);

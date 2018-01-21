@@ -3,7 +3,9 @@
 const commander = require('commander');
 const functions = {
     objectDefinitions: require('../core/saveObjectDefinitions'),
-    transformations: require('../core/saveTransformations'),
+    transformations: require('../core/removeFormulas'),
+    formulaInstances: require('../core/removeFormulaInstances'),
+    instances: {},
     formulas: require('../core/saveFormulas')
 }
 
@@ -27,9 +29,10 @@ commander
   .on('--help', () => {
     console.log('  Examples:');
     console.log('');
-    console.log('    $ doctor save objectDefinitions staging');
-    console.log('    $ doctor save formulas production -f ~/Desktop/formulas-production.json');
-    console.log('    $ doctor save transformations production');
+    console.log('    $ doctor delete objectDefinitions staging');
+    console.log('    $ doctor delete formulas production');
+    console.log('    $ doctor delete transformations production');
+    console.log('    $ doctor delete formulaInstances productionw');
     console.log('');
   })
   .parse(process.argv);

@@ -4,7 +4,9 @@ const commander = require('commander');
 const functions = {
     objectDefinitions: require('../core/saveObjectDefinitions'),
     transformations: require('../core/saveTransformations'),
-    formulas: require('../core/saveFormulas')
+    formulas: require('../core/saveFormulas'),
+    formulaInstances: require('../core/saveFormulaInstances'),
+    all: require('../core/saveAll')
 }
 
 const save = (object, environment, options) => {
@@ -33,6 +35,7 @@ commander
     console.log('    $ doctor save objectDefinitions staging -f ~/Desktop/objectDefinitions-staging.json');
     console.log('    $ doctor save formulas production -f ~/Desktop/formulas-production.json');
     console.log('    $ doctor save transformations production -f ~/Desktop/transformations-production.json');
+    console.log('    $ doctor save all production -f ~/Desktop/production-backup-1-21-18.json');
     console.log('');
   })
   .parse(process.argv);

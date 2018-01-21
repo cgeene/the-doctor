@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 require('dotenv').config({path: '/Users/calebgeene/the-doctor/config.env'});
-console.log(process.env.USER_SECRET_PROD);
 let commander = require('commander');
 
 commander
