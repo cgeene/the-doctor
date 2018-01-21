@@ -4,8 +4,7 @@ const commander = require('commander');
 const functions = {
     objectDefinitions: require('../core/saveObjectDefinitions'),
     transformations: require('../core/saveTransformations'),
-    formulas: require('../core/saveFormulas'),
-    element: require('../core/saveElement');
+    formulas: require('../core/saveFormulas')
 }
 
 const save = (object, environment, options) => {
@@ -27,14 +26,13 @@ const save = (object, environment, options) => {
 commander
   .command('object [environment]', 'object')
   .option("-f, --file [file]", "location of file to save objects")
-  .option("-k, --keys [...keys]", "elementKeys to save transformations for")
   .action((object, environment, options) => save(object, environment, options))
   .on('--help', () => {
     console.log('  Examples:');
     console.log('');
-    console.log('    $ doctor save objectDefinitions staging');
+    console.log('    $ doctor save objectDefinitions staging -f ~/Desktop/objectDefinitions-staging.json');
     console.log('    $ doctor save formulas production -f ~/Desktop/formulas-production.json');
-    console.log('    $ doctor save transformations production');
+    console.log('    $ doctor save transformations production -f ~/Desktop/transformations-production.json');
     console.log('');
   })
   .parse(process.argv);

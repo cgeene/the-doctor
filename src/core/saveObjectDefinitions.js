@@ -4,9 +4,9 @@ const getObjectDefinitions = require('../util/getObjectDefinitions');
 const saveToFile = require('../util/saveToFile');
 const {pipeP, prop, converge} = require('ramda');
 
-module.exports = (environment, options) => {
+module.exports = async (environment, options) => {
   const fileName = options.file;
-  pipeP(
+  return await pipeP(
     getObjectDefinitions,
     saveToFile(fileName)
   )(environment);
